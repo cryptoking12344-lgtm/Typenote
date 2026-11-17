@@ -301,7 +301,7 @@ fun EditorScreen(noteId: Long, onClose: () -> Unit) {
                         speckles.forEach { (x, y, a) ->
                             drawCircle(
                                 Color(0xFF785F3C).copy(alpha = 0.05f + a * 0.07f),
-                                radius = 0.6f * density + a * density,
+                                radius = 0.6f * this.density + a * this.density,
                                 center = Offset(x * size.width, y * size.height),
                             )
                         }
@@ -317,9 +317,9 @@ fun EditorScreen(noteId: Long, onClose: () -> Unit) {
                             Brush.verticalGradient(
                                 0f to Color.Black.copy(alpha = if (settings.curved) 0.38f else 0.25f),
                                 1f to Color.Transparent,
-                                startY = 0f, endY = 46f * density,
+                                startY = 0f, endY = 46f * this.density,
                             ),
-                            size = Size(size.width, 46f * density),
+                            size = Size(size.width, 46f * this.density),
                         )
                     }
                     .pointerInput(Unit) {
@@ -369,8 +369,8 @@ fun EditorScreen(noteId: Long, onClose: () -> Unit) {
                             val r = caretRect ?: return@drawWithContent
                             drawRect(
                                 Ribbon.copy(alpha = caretAlpha),
-                                topLeft = Offset(r.left + 1.5f * density, r.top + r.height * 0.12f),
-                                size = Size(2f * density, r.height * 0.76f),
+                                topLeft = Offset(r.left + 1.5f * this.density, r.top + r.height * 0.12f),
+                                size = Size(2f * this.density, r.height * 0.76f),
                             )
                         },
                 )
